@@ -1,26 +1,130 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+  --color-blush: var(--blush);
+  --color-blush-foreground: var(--blush-foreground);
+  --color-gold: var(--gold);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Adesuwa Isenérè brand palette — sampled from logo (#C60E80) and brand doc (wine #4A0F1C, ivory #FDF3DC, blush #F9EEF1, gold #C9A84C) */
+  --background: #fffcf9;
+  --foreground: #2a1015;
+  --card: #ffffff;
+  --card-foreground: #2a1015;
+  --popover: #ffffff;
+  --popover-foreground: #2a1015;
+  --primary: #c60e80;
+  --primary-foreground: #ffffff;
+  --secondary: #4a0f1c;
+  --secondary-foreground: #fdf3dc;
+  --muted: #f6ede6;
+  --muted-foreground: #7a5560;
+  --accent: #fdf3dc;
+  --accent-foreground: #4a0f1c;
+  --blush: #f9eef1;
+  --blush-foreground: #4a0f1c;
+  --gold: #c9a84c;
+  --destructive: #dc2626;
+  --border: #f0dde3;
+  --input: #f0dde3;
+  --ring: #c60e80;
+  --radius: 0.75rem;
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+.dark {
+  --background: #1b0b10;
+  --foreground: #fbefe4;
+  --card: #26121a;
+  --card-foreground: #fbefe4;
+  --popover: #26121a;
+  --popover-foreground: #fbefe4;
+  --primary: #e23b96;
+  --primary-foreground: #1b0b10;
+  --secondary: #3a121f;
+  --secondary-foreground: #fbefe4;
+  --muted: #2a161b;
+  --muted-foreground: #c9a9af;
+  --accent: #33161c;
+  --accent-foreground: #fbefe4;
+  --blush: #33191f;
+  --blush-foreground: #fbefe4;
+  --gold: #d4b968;
+  --destructive: #f87171;
+  --border: #3a2229;
+  --input: #3a2229;
+  --ring: #e23b96;
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
 }
