@@ -46,10 +46,11 @@ export function Header() {
 
         <div className="flex items-center gap-1.5">
           <Button
+            variant="pill"
             render={<Link href="/services#booking" />}
-            className="hidden md:inline-flex"
+            className="hidden px-5 md:inline-flex"
           >
-            Book a Session
+            Book a Counselling Session
           </Button>
           <ThemeToggle />
 
@@ -85,10 +86,11 @@ export function Header() {
                   );
                 })}
                 <Button
+                  variant="pill"
                   render={<Link href="/services#booking" onClick={() => setOpen(false)} />}
                   className="mt-3"
                 >
-                  Book a Session
+                  Book a Counselling Session
                 </Button>
               </nav>
             </SheetContent>

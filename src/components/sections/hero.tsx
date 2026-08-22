@@ -31,8 +31,13 @@ export function Hero() {
             for singles and newly married couples building relationships that last.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button size="lg" render={<Link href="/services#booking" />}>
-              Book a Session
+            <Button
+              size="lg"
+              variant="pill"
+              className="px-6"
+              render={<Link href="/services#booking" />}
+            >
+              Book a Counselling Session
               <ArrowRight className="size-4" />
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/about" />}>

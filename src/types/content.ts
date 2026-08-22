@@ -10,16 +10,21 @@ export type Service = {
 export type PricingTier = {
   name: string;
   price: string;
-  unit?: string;
+  duration: string;
   description: string;
   features: string[];
+  note?: string;
+  ctaHref: string;
+  ctaLabel?: string;
   highlighted?: boolean;
+  badge?: string;
 };
 
 export type Testimonial = {
   name: string;
   quote: string;
   role?: string;
+  rating?: number;
 };
 
 export type Faq = {
@@ -34,4 +39,6 @@ export type Product = {
   href: string;
   ctaLabel: string;
   badge?: string;
+  image?: string;
+  icon?: LucideIcon;
 };
