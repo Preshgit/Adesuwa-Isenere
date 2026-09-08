@@ -26,7 +26,7 @@ export const contactInfo = {
 export const socialLinks = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/heartdropswithsuess",
+    href: "https://www.instagram.com/merryheartswithsuess",
     icon: "instagram",
   },
   {
@@ -35,11 +35,15 @@ export const socialLinks = [
     icon: "youtube",
   },
   {
-    label: "TikTok",
-    href: "https://www.tiktok.com/@heartdropswithsuess",
-    icon: "tiktok",
+    label: "Spotify",
+    href: "https://open.spotify.com/show/4vz3nuJr5nhdNezQyw5G3h",
+    icon: "spotify",
   },
 ] as const;
+
+// Selar storefront — packages, sessions, and the book are sold here.
+export const selarStoreUrl = "https://selar.com/m/heartdropswithsuess";
+export const bookSelarUrl = "https://selar.com/375d867615";
 
 // TODO: replace with the real Calendly (or Cal.com) scheduling link before launch.
 export const calendlyUrl = "https://calendly.com/your-calendly-handle";
@@ -47,8 +51,6 @@ export const calendlyUrl = "https://calendly.com/your-calendly-handle";
 // TODO: replace with real EmailJS credentials before launch (see .env.local.example).
 export const emailjsConfig = {
   serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "REPLACE_SERVICE_ID",
-  contactTemplateId:
-    process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID ?? "REPLACE_CONTACT_TEMPLATE_ID",
   newsletterTemplateId:
     process.env.NEXT_PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID ?? "REPLACE_NEWSLETTER_TEMPLATE_ID",
   publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "REPLACE_PUBLIC_KEY",

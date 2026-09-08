@@ -27,10 +27,10 @@ function YoutubeIcon({ className }: { className?: string }) {
   );
 }
 
-function TikTokIcon({ className }: { className?: string }) {
+function SpotifyIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M16.6 5.82c-.8-.7-1.32-1.68-1.44-2.78h-3.05v13.1a2.6 2.6 0 1 1-1.84-2.49v-3.1a5.6 5.6 0 1 0 4.84 5.55V9.4a7.6 7.6 0 0 0 4.44 1.42V7.77a4.9 4.9 0 0 1-2.95-1.95Z" />
+      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.59 14.44a.62.62 0 0 1-.86.21c-2.36-1.44-5.33-1.77-8.83-.97a.63.63 0 0 1-.28-1.22c3.83-.88 7.12-.5 9.76 1.12.3.18.4.57.21.86Zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.7-1.66-6.82-2.14-10.02-1.17a.78.78 0 1 1-.45-1.5c3.65-1.1 8.19-.57 11.28 1.33.37.23.49.71.26 1.08Zm.11-2.83c-3.24-1.92-8.59-2.1-11.68-1.16a.94.94 0 1 1-.55-1.8c3.55-1.08 9.44-.87 13.16 1.35a.94.94 0 0 1-.93 1.61Z" />
     </svg>
   );
 }
@@ -38,7 +38,7 @@ function TikTokIcon({ className }: { className?: string }) {
 const icons = {
   instagram: InstagramIcon,
   youtube: YoutubeIcon,
-  tiktok: TikTokIcon,
+  spotify: SpotifyIcon,
 };
 
 export function SocialLinks({ className }: { className?: string }) {

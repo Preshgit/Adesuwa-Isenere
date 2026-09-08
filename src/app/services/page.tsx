@@ -42,14 +42,24 @@ export default function ServicesPage() {
       </Section>
 
       <Section background="blush">
-        <SectionHeading eyebrow="Pricing" title="Simple, transparent packages" align="center" />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <SectionHeading
+          eyebrow="Pricing"
+          title="Counseling packages"
+          description="Every package is booked and paid for securely through Selar."
+          align="center"
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {pricingTiers.map((tier, i) => (
-            <AnimatedReveal key={tier.name} delay={i * 0.1}>
+            <AnimatedReveal key={tier.name} delay={i * 0.06}>
               <PricingCard tier={tier} />
             </AnimatedReveal>
           ))}
         </div>
+        <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-foreground/60">
+          Each package is structured to deliver results within its stated sessions. If more support
+          is needed, additional sessions are billed separately at the standard rate. Full booking,
+          payment, and rescheduling terms are shared at checkout.
+        </p>
       </Section>
 
       <BookingEmbed />
