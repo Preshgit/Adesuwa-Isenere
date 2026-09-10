@@ -26,7 +26,7 @@ export function Header() {
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-8">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -35,7 +35,7 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   "text-sm font-medium tracking-wide transition-colors hover:text-primary",
-                  isActive ? "text-primary" : "text-foreground/75"
+                  isActive ? "text-primary font-semibold" : "text-foreground/75"
                 )}
               >
                 {link.label}
@@ -44,55 +44,60 @@ export function Header() {
           })}
         </nav>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Button
             variant="pill"
             render={<Link href="/services#booking" />}
-            className="hidden px-5 md:inline-flex"
+            className="hidden sm:inline-flex px-4 md:px-5 text-xs md:text-sm font-medium shadow-xs"
           >
-            Book a Counselling Session
+            Book a Session
           </Button>
           <ThemeToggle />
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
-              render={<Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu" />}
+              render={<Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu" />}
             >
               <Menu className="size-5" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-72">
-              <SheetHeader>
-                <SheetTitle>
-                  <Logo />
-                </SheetTitle>
-              </SheetHeader>
-              <nav className="mt-4 flex flex-col gap-1 px-4">
-                {navLinks.map((link) => {
-                  const isActive = pathname === link.href;
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      className={cn(
-                        "rounded-md px-3 py-2.5 text-base font-medium transition-colors",
-                        isActive
-                          ? "bg-accent text-primary"
-                          : "text-foreground/80 hover:bg-accent hover:text-primary"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  );
-                })}
+            <SheetContent side="right" className="w-[85vw] max-w-sm p-6 sm:w-96 flex flex-col justify-between">
+              <div>
+                <SheetHeader className="p-0 pb-5 border-b border-border/60">
+                  <SheetTitle>
+                    <Logo />
+                  </SheetTitle>
+                </SheetHeader>
+                <nav className="mt-6 flex flex-col gap-1.5">
+                  {navLinks.map((link) => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "rounded-xl px-4 py-3 text-base font-medium transition-colors",
+                          isActive
+                            ? "bg-primary/10 text-primary font-semibold"
+                            : "text-foreground/80 hover:bg-muted hover:text-foreground"
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    );
+                  })}
+                </nav>
+              </div>
+              <div className="pt-6 border-t border-border/60">
                 <Button
                   variant="pill"
+                  size="lg"
                   render={<Link href="/services#booking" onClick={() => setOpen(false)} />}
-                  className="mt-3"
+                  className="w-full shadow-md font-semibold text-sm"
                 >
                   Book a Counselling Session
                 </Button>
-              </nav>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

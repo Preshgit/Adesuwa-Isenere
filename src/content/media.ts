@@ -21,6 +21,7 @@ export const courses: Product[] = [
       "Self-paced online courses on relationship wellness, healing, and building healthy relationships.",
     href: selarStoreUrl,
     ctaLabel: "Explore Courses",
-    icon: GraduationCap,
+    image: "/images/online-courses.jpg",
+    badge: "Masterclass",
   },
 ];
