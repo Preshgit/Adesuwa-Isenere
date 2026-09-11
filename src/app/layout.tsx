@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Manrope } from "next/font/google";
+import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -7,14 +7,16 @@ import { Toaster } from "sonner";
 import { siteConfig } from "@/lib/constants";
 import "./globals.css";
 
-const heading = Playfair_Display({
+const heading = Fraunces({
   variable: "--font-heading",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const body = Manrope({
+const body = Plus_Jakarta_Sans({
   variable: "--font-body",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {

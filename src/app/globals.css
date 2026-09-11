@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
   --font-heading: var(--font-heading);
+  --font-eyebrow: var(--font-body);
   --color-blush: var(--blush);
   --color-blush-foreground: var(--blush-foreground);
   --color-gold: var(--gold);
@@ -87,7 +88,7 @@
   --popover: #26121a;
   --popover-foreground: #fbefe4;
   --primary: #e23b96;
-  --primary-foreground: #1b0b10;
+  --primary-foreground: #ffffff;
   --secondary: #3a121f;
   --secondary-foreground: #fbefe4;
   --muted: #2a161b;

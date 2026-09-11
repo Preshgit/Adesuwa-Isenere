@@ -15,7 +15,7 @@ export function MediaGrid() {
           title="Resources to guide your journey"
           description="Practical, honest resources on relationships and wellness — starting with the book."
         />
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-3xl gap-6 sm:grid-cols-2">
           {[...books, ...courses].map((product, i) => (
             <AnimatedReveal key={product.title} delay={i * 0.08}>
               <ProductCard product={product} />

@@ -48,7 +48,7 @@ export default function ServicesPage() {
           description="Every package is booked and paid for securely through Selar."
           align="center"
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {pricingTiers.map((tier, i) => (
             <AnimatedReveal key={tier.name} delay={i * 0.06}>
               <PricingCard tier={tier} />
