@@ -6,12 +6,40 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { AnimatedReveal } from "@/components/shared/animated-reveal";
 import { Card, CardContent } from "@/components/ui/card";
+import { JsonLd, getBreadcrumbSchema } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Adesuwa Isenérè | Marriage & Family Counselor",
   description:
-    "Meet Adesuwa Isenérè — Marriage & Family Counselor, Author, Speaker, and Podcast Host of Merry Hearts Counselling.",
+    "Meet Adesuwa Isenérè, Marriage & Family Counselor and founder of Merry Hearts Counselling. Learn about her clinical mission to help individuals and couples heal, break patterns, and build healthy relationships.",
+  alternates: {
+    canonical: `${siteConfig.url}/about`,
+  },
+  openGraph: {
+    title: "About Adesuwa Isenérè | Marriage & Family Counselor",
+    description:
+      "Marriage & Family Counselor, Author, Speaker, and Podcast Host. Helping people break generational patterns, heal emotional wounds, and build healthy relationships.",
+    url: `${siteConfig.url}/about`,
+    siteName: siteConfig.practiceName,
+    type: "profile",
+    locale: "en_NG",
+    images: [
+      {
+        url: "/images/adesuwa-about.jpg",
+        width: 1200,
+        height: 630,
+        alt: `Adesuwa Isenérè — Marriage & Family Counselor`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Adesuwa Isenérè | Marriage & Family Counselor",
+    description:
+      "Meet Adesuwa Isenérè — Marriage & Family Counselor of Merry Hearts Counselling. Healing wounds and breaking patterns.",
+    images: ["/images/adesuwa-about.jpg"],
+  },
 };
 
 const values = [
@@ -38,6 +66,7 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={getBreadcrumbSchema([{ name: "About", path: "/about" }])} />
       <PageHero
         eyebrow="About Adesuwa"
         title="Break the pattern. Heal the wound. Build the life."
@@ -53,6 +82,7 @@ export default function AboutPage() {
                 fill
                 sizes="(min-width: 1024px) 22rem, (min-width: 640px) 24rem, 85vw"
                 className="object-cover"
+                priority
               />
             </div>
           </AnimatedReveal>

@@ -46,11 +46,8 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-[2rem] shadow-xl ring-1 ring-foreground/5 sm:max-w-sm md:max-w-md"
+        <div
+          className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-[2rem] shadow-xl ring-1 ring-foreground/5 sm:max-w-sm md:max-w-md transition-all duration-700 ease-out"
         >
           <Image
             src="/images/adesuwa-hero.jpg"
@@ -64,7 +61,7 @@ export function Hero() {
             <p className="font-heading text-sm text-foreground sm:text-base">{siteConfig.name}</p>
             <p className="text-xs text-foreground/60">Marriage & Family Counselor</p>
           </div>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

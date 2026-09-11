@@ -7,16 +7,48 @@ import { ContactForm } from "@/components/sections/contact-form";
 import { NewsletterCTA } from "@/components/sections/newsletter-cta";
 import { SocialLinks } from "@/components/shared/social-links";
 import { Card, CardContent } from "@/components/ui/card";
-import { contactInfo } from "@/lib/constants";
+import { JsonLd, getBreadcrumbSchema } from "@/components/seo/json-ld";
+import { contactInfo, siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with Adesuwa Isenérè of Merry Hearts Counselling.",
+  title: "Contact & Book a Session | Merry Hearts Counselling Lagos",
+  description:
+    "Reach out to Adesuwa Isenérè at Merry Hearts Counselling. Schedule an in-person session in Lagos, Nigeria or book virtual counseling worldwide via Zoom and Google Meet.",
+  alternates: {
+    canonical: `${siteConfig.url}/contact`,
+  },
+  openGraph: {
+    title: "Contact & Book a Session | Merry Hearts Counselling",
+    description:
+      "Get in touch with Marriage & Family Counselor Adesuwa Isenérè. In-person appointments in Lagos and virtual counseling worldwide.",
+    url: `${siteConfig.url}/contact`,
+    siteName: siteConfig.practiceName,
+    type: "website",
+    locale: "en_NG",
+    images: [
+      {
+        url: "/images/adesuwa-about.jpg",
+        width: 1200,
+        height: 630,
+        alt: `Contact — ${siteConfig.practiceName}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact & Book a Session | Merry Hearts Counselling",
+    description:
+      "Schedule in-person counseling in Lagos or virtual therapy worldwide with Adesuwa Isenérè.",
+    images: ["/images/adesuwa-about.jpg"],
+  },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={getBreadcrumbSchema([{ name: "Contact", path: "/contact" }])}
+      />
       <PageHero
         eyebrow="Contact"
         title="Let's start the conversation"
