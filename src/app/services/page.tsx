@@ -7,19 +7,59 @@ import { ServiceCard } from "@/components/shared/service-card";
 import { PricingCard } from "@/components/shared/pricing-card";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { BookingEmbed } from "@/components/sections/booking-embed";
+import {
+  JsonLd,
+  getBreadcrumbSchema,
+  getServicesSchema,
+  getFaqSchema,
+} from "@/components/seo/json-ld";
 import { services } from "@/content/services";
 import { pricingTiers } from "@/content/pricing";
 import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Relationship & Marriage Counseling Services | Lagos & Online Nigeria",
   description:
-    "Individual, pre-marital, couples and family counseling, plus trainings and workshops from Merry Hearts Counselling.",
+    "Professional relationship counseling, pre-marital therapy, family systems, and emotional healing packages with Adesuwa Isenérè in Lagos & online across Nigeria.",
+  alternates: {
+    canonical: `${siteConfig.url}/services`,
+  },
+  openGraph: {
+    title: "Relationship & Marriage Counseling Services | Merry Hearts Counselling",
+    description:
+      "Individual, pre-marital, couples and family counseling, plus specialized emotional healing packages. In-person in Lagos and virtual worldwide.",
+    url: `${siteConfig.url}/services`,
+    siteName: siteConfig.practiceName,
+    type: "website",
+    locale: "en_NG",
+    images: [
+      {
+        url: "/images/adesuwa-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: `Counseling Services — ${siteConfig.practiceName}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Relationship & Marriage Counseling Services | Merry Hearts Counselling",
+    description:
+      "Individual, couples, pre-marital and family counseling in Lagos and virtual worldwide.",
+    images: ["/images/adesuwa-hero.jpg"],
+  },
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          getBreadcrumbSchema([{ name: "Services", path: "/services" }]),
+          getServicesSchema(),
+          getFaqSchema(),
+        ]}
+      />
       <PageHero
         eyebrow="Services"
         title="Counseling & Trainings"

@@ -1,7 +1,7 @@
-import emailjs from "@emailjs/browser";
 import { emailjsConfig } from "@/lib/constants";
 
-export function sendNewsletterSignup(params: { email: string }) {
+export async function sendNewsletterSignup(params: { email: string }) {
+  const emailjs = (await import("@emailjs/browser")).default;
   return emailjs.send(
     emailjsConfig.serviceId,
     emailjsConfig.newsletterTemplateId,

@@ -5,6 +5,12 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "sonner";
 import { siteConfig } from "@/lib/constants";
+import {
+  JsonLd,
+  getWebSiteSchema,
+  getOrganizationSchema,
+  getPersonSchema,
+} from "@/components/seo/json-ld";
 import "./globals.css";
 
 const heading = Fraunces({
@@ -20,16 +26,53 @@ const body = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s | ${siteConfig.name} — ${siteConfig.practiceName}`,
   },
   description: siteConfig.description,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
-    siteName: siteConfig.name,
+    siteName: siteConfig.practiceName,
+    url: siteConfig.url,
     type: "website",
+    locale: "en_NG",
+    images: [
+      {
+        url: "/images/adesuwa-about.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — Marriage & Family Counselor`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: ["/images/adesuwa-about.jpg"],
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: {
+      "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ?? "",
+    },
   },
 };
 
@@ -45,6 +88,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+        <JsonLd data={[getWebSiteSchema(), getOrganizationSchema(), getPersonSchema()]} />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

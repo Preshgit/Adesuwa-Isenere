@@ -125,6 +125,8 @@
   animation-name: marquee;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 @layer base {
