@@ -72,9 +72,9 @@ export default function ServicesPage() {
           title="How we can work together"
           description="Every service is rooted in compassion, confidentiality, and clinical excellence — practical support for singles, couples, and families."
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {services.map((service, i) => (
-            <AnimatedReveal key={service.title} delay={i * 0.08}>
+            <AnimatedReveal key={service.title} delay={i * 0.08} className="h-full">
               <ServiceCard service={service} />
             </AnimatedReveal>
           ))}
