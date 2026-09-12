@@ -8,7 +8,8 @@ const contactFormUrl =
 
 export function ContactForm() {
   return (
-    <Card className="h-full border-border/80 shadow-sm flex flex-col justify-between">
+    <section id="client-inquiry" aria-label="Client Inquiry & Intake" className="h-full scroll-mt-24">
+      <Card className="h-full border-border/80 shadow-sm flex flex-col justify-between">
       <CardContent className="flex h-full flex-1 flex-col justify-between p-6 sm:p-7">
         <div>
           <div className="flex items-center justify-between gap-2">
@@ -81,6 +82,7 @@ export function ContactForm() {
           </p>
         </div>
       </CardContent>
-    </Card>
+      </Card>
+    </section>
   );
 }

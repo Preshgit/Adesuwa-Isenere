@@ -154,7 +154,7 @@ export default function ContactPage() {
             </Card>
           </AnimatedReveal>
 
-          <AnimatedReveal delay={0.1} className="h-full">
+          <AnimatedReveal delay={0.1} className="h-full" id="inquiry">
             <ContactForm />
           </AnimatedReveal>
         </div>
