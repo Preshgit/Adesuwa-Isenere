@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: "/images/adesuwa-hero.jpg",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — Marriage & Family Counselor`,
+        alt: `${siteConfig.name} - Marriage & Family Counselor`,
       },
     ],
   },

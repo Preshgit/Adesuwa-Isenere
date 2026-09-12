@@ -6,7 +6,7 @@ export const books: Product[] = [
   {
     title: "Before You Say Yes",
     description:
-      "The conversations, questions, and truths that prepare you for marriage — a guide for every woman standing at a crossroad, helping you choose better before you commit.",
+      "The conversations, questions, and truths that prepare you for marriage - a guide for every woman standing at a crossroad, helping you choose better before you commit.",
     href: bookSelarUrl,
     ctaLabel: "Buy the Book",
     badge: "Featured",

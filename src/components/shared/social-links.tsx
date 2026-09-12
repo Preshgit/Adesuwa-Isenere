@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { socialLinks } from "@/lib/constants";
 
-// lucide-react dropped brand/trademarked glyphs — minimal inline marks keep the icon set consistent.
+// lucide-react dropped brand/trademarked glyphs - minimal inline marks keep the icon set consistent.
 function InstagramIcon({ className }: { className?: string }) {
   return (
     <svg

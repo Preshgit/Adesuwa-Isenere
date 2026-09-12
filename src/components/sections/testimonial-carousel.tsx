@@ -87,11 +87,11 @@ export function TestimonialCarousel() {
       <SectionHeading
         eyebrow="Client Stories"
         title="Words from those I've walked with"
-        description="Real feedback from the counselling client survey — shared with permission."
+        description="Real feedback from the counselling client survey, shared with permission."
         align="center"
       />
 
-      <AnimatedReveal delay={0.1} className="relative mt-12 -mx-4 space-y-6 sm:-mx-6 lg:-mx-8">
+      <AnimatedReveal delay={0.1} className="relative mt-8 -mx-4 space-y-6 sm:-mx-6 lg:-mx-8">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-muted to-transparent sm:w-32" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-muted to-transparent sm:w-32" />
 

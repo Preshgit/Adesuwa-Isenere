@@ -11,6 +11,7 @@ import {
   getOrganizationSchema,
   getPersonSchema,
 } from "@/components/seo/json-ld";
+import { LoveBubbles } from "@/components/shared/love-bubbles";
 import "./globals.css";
 
 const heading = Fraunces({
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
-    template: `%s | ${siteConfig.name} — ${siteConfig.practiceName}`,
+    template: `%s | ${siteConfig.name} - ${siteConfig.practiceName}`,
   },
   description: siteConfig.description,
   alternates: {
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
         url: "/images/adesuwa-about.jpg",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — Marriage & Family Counselor`,
+        alt: `${siteConfig.name} - Marriage & Family Counselor`,
       },
     ],
   },
@@ -95,6 +96,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <LoveBubbles />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

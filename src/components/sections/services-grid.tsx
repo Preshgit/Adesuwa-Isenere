@@ -25,14 +25,14 @@ export function ServicesGrid({
       <SectionHeading
         eyebrow="What I Offer"
         title="Counseling, trainings & resources"
-        description="Support for singles, couples, and families — whatever stage of the relationship journey you're in."
+        description="Support for singles, couples, and families, whatever stage of the relationship journey you're in."
       />
       <div
         className={cn(
-          "mt-12 grid gap-6 lg:gap-8",
+          "mt-8 grid gap-6 lg:gap-8",
           isThree
             ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-            : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+            : "grid-cols-1 sm:grid-cols-2 max-w-5xl mx-auto"
         )}
       >
         {items.map((service, i) => {
@@ -49,7 +49,7 @@ export function ServicesGrid({
         })}
       </div>
       {showCta && (
-        <div className="mt-12 text-center">
+        <div className="mt-8 text-center">
           <Button render={<Link href="/services" />}>
             View all services
             <ArrowRight className="size-4" />

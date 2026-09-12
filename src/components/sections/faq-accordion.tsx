@@ -13,10 +13,10 @@ export function FaqAccordion() {
   return (
     <Section background="muted">
       <SectionHeading eyebrow="FAQs" title="Common questions" align="center" />
-      <AnimatedReveal className="mx-auto mt-10 max-w-2xl" delay={0.1}>
-        <Accordion className="rounded-2xl border border-border bg-card px-6">
+      <AnimatedReveal className="mx-auto mt-8 max-w-2xl" delay={0.1}>
+        <Accordion className="rounded-2xl border border-border bg-card px-6 py-2 ">
           {faqs.map((faq, i) => (
-            <AccordionItem key={faq.question} value={String(i)}>
+            <AccordionItem key={faq.question} value={String(i)} className="p-2">
               <AccordionTrigger className="font-heading text-base">
                 {faq.question}
               </AccordionTrigger>
