@@ -36,7 +36,7 @@ export function Hero() {
               size="lg"
               variant="pill"
               className="px-6"
-              render={<Link href="/contact/#client-inquiry" />}
+              render={<Link href="/contact#client-inquiry" />}
             >
               Book a Counselling Session
               <ArrowRight className="size-4" />
