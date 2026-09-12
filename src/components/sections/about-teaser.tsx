@@ -7,16 +7,16 @@ import { Button } from "@/components/ui/button";
 
 export function AboutTeaser() {
   return (
-    <Section>
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+    <Section className="border-b border-border/70">
+      <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
         <SectionHeading
           eyebrow="About Adesuwa"
           title="My mission is to help you heal, choose better, and love well."
         />
-        <AnimatedReveal delay={0.1} className="space-y-5 text-base leading-relaxed text-foreground/70">
+        <AnimatedReveal delay={0.1} className="space-y-4 text-base leading-relaxed text-foreground/70">
           <p>
             I became a counselor because I believe that most of the pain people carry in their
-            relationships did not begin there — it began long before, in their first homes, in
+            relationships did not begin there - it began long before, in their first homes, in
             childhoods, in the patterns they watched and inherited and never had the right
             language for.
           </p>

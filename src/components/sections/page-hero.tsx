@@ -12,7 +12,7 @@ export function PageHero({
 }) {
   return (
     <section className="bg-secondary text-secondary-foreground">
-      <Container className="py-16 text-center md:py-20">
+      <Container className="py-10 text-center md:py-14">
         <AnimatedReveal>
           <span className="font-heading text-sm font-medium tracking-[0.2em] text-gold uppercase">
             {eyebrow}

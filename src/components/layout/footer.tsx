@@ -10,13 +10,13 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-secondary text-secondary-foreground">
-      <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <Container className="grid gap-8 py-10 sm:grid-cols-2 md:py-12 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           <Logo className="[&_span]:text-secondary-foreground" />
-          <p className="mt-4 max-w-xs text-sm text-secondary-foreground/70">
+          <p className="mt-3 max-w-xs text-sm text-secondary-foreground/70">
             {siteConfig.tagline}
           </p>
-          <SocialLinks className="mt-6 [&_a]:border-secondary-foreground/20 [&_a]:text-secondary-foreground/70 [&_a:hover]:border-gold [&_a:hover]:text-gold" />
+          <SocialLinks className="mt-5 [&_a]:border-secondary-foreground/20 [&_a]:text-secondary-foreground/70 [&_a:hover]:border-gold [&_a:hover]:text-gold" />
         </div>
 
         <div>
@@ -34,6 +34,14 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/contact"
+                className="text-sm text-secondary-foreground/80 transition-colors hover:text-gold"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -73,7 +81,7 @@ export function Footer() {
         </div>
       </Container>
 
-      <div className="border-t border-secondary-foreground/10 py-6">
+      <div className="border-t border-secondary-foreground/10 py-4.5">
         <Container className="flex flex-col items-center justify-between gap-2 text-xs text-secondary-foreground/60 sm:flex-row">
           <p>
             © {year} {siteConfig.name}. All rights reserved.

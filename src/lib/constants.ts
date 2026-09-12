@@ -13,7 +13,6 @@ export const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Media & Resources", href: "/media" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const contactInfo = {
@@ -41,7 +40,7 @@ export const socialLinks = [
   },
 ] as const;
 
-// Selar storefront — packages, sessions, and the book are sold here.
+// Selar storefront - packages, sessions, and the book are sold here.
 export const selarStoreUrl = "https://selar.com/m/heartdropswithsuess";
 export const bookSelarUrl = "https://selar.com/375d867615";
 

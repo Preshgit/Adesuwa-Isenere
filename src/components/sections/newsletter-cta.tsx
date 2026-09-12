@@ -49,25 +49,25 @@ export function NewsletterCTA() {
       <div className="pointer-events-none absolute -bottom-32 -right-32 size-96 rounded-full bg-gold/20 blur-3xl dark:bg-gold/25" />
 
       <AnimatedReveal className="relative mx-auto max-w-2xl text-center">
-        <span className="mx-auto flex size-14 items-center justify-center rounded-full bg-gold/15 text-gold border border-gold/30 shadow-sm backdrop-blur-xs">
-          <Mail className="size-6 text-gold" />
+        <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-gold/15 text-gold border border-gold/30 shadow-sm backdrop-blur-xs">
+          <Mail className="size-5 text-gold" />
         </span>
-        <h2 className="mt-5 font-heading text-3xl font-medium text-balance sm:text-4xl text-secondary-foreground">
+        <h2 className="mt-4 font-heading text-3xl font-medium text-balance sm:text-4xl text-secondary-foreground">
           Relationship insights, straight to your inbox
         </h2>
-        <p className="mx-auto mt-3 max-w-lg text-base leading-relaxed text-secondary-foreground/80 sm:text-lg">
+        <p className="mx-auto mt-2 max-w-lg text-base leading-relaxed text-secondary-foreground/80 sm:text-lg">
           Join the newsletter for reflections on healing, choosing well, and loving better.
         </p>
 
         {submitted ? (
-          <div className="mt-8 inline-flex items-center gap-2 rounded-2xl border border-gold/30 bg-gold/15 px-6 py-3 font-medium text-gold backdrop-blur-xs">
+          <div className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-gold/30 bg-gold/15 px-6 py-3 font-medium text-gold backdrop-blur-xs">
             <Check className="size-5" />
             Thank you for subscribing! Look out for our next update.
           </div>
         ) : (
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="mx-auto mt-8 flex max-w-lg flex-col gap-3 sm:flex-row sm:items-start sm:gap-3"
+            className="mx-auto mt-6 flex max-w-lg flex-col gap-3 sm:flex-row sm:items-start sm:gap-3"
             noValidate
           >
             <div className="relative flex-1">

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Heart, ShieldCheck, Sparkles } from "lucide-react";
+import { Compass, Heart, ShieldCheck, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "/images/adesuwa-about.jpg",
         width: 1200,
         height: 630,
-        alt: `Adesuwa Isenérè — Marriage & Family Counselor`,
+        alt: `Adesuwa Isenérè - Marriage & Family Counselor`,
       },
     ],
   },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Adesuwa Isenérè | Marriage & Family Counselor",
     description:
-      "Meet Adesuwa Isenérè — Marriage & Family Counselor of Merry Hearts Counselling. Healing wounds and breaking patterns.",
+      "Meet Adesuwa Isenérè - Marriage & Family Counselor of Merry Hearts Counselling. Healing wounds and breaking patterns.",
     images: ["/images/adesuwa-about.jpg"],
   },
 };
@@ -59,7 +59,7 @@ const values = [
     icon: Sparkles,
     title: "Hope as a Clinical Commitment",
     description:
-      "I believe people can change and healing is possible — no one is beyond help, growth, or the life they're hoping for.",
+      "I believe people can change and healing is possible - no one is beyond help, growth, or the life they're hoping for.",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function AboutPage() {
       />
 
       <Section>
-        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-16">
+        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-14">
           <AnimatedReveal className="mx-auto w-full max-w-xs lg:mx-0 lg:max-w-none">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-lg ring-1 ring-foreground/5">
               <Image
@@ -87,59 +87,83 @@ export default function AboutPage() {
             </div>
           </AnimatedReveal>
 
-          <div className="space-y-6 text-lg leading-relaxed text-foreground/80">
-            <AnimatedReveal delay={0.1}>
+          <AnimatedReveal delay={0.1} className="flex flex-col justify-center">
+            <span className="font-heading text-sm font-medium tracking-[0.2em] text-primary uppercase">
+              My Story & Approach
+            </span>
+            <h2 className="mt-2.5 font-heading text-2xl font-medium leading-tight text-foreground sm:text-3xl lg:text-4xl text-balance">
+              Helping you heal, choose better, and love well.
+            </h2>
+            <div className="mt-5 space-y-4 text-base sm:text-lg leading-relaxed text-foreground/80">
               <p>
                 I became a counselor because I believe that most of the pain people carry in their
-                relationships did not begin there. It began long before — in their first homes, in
+                relationships did not begin there. It began long before, in their first homes, in
                 childhoods, in the patterns they watched and inherited and never had the right
                 language for.
               </p>
-            </AnimatedReveal>
-            <AnimatedReveal delay={0.2}>
               <p>
                 My work is to help you find that language; to name what has been driving the
                 patterns; to heal what needs healing and to build, on the other side of that work,
                 a life and relationships that actually feel like yours.
               </p>
-            </AnimatedReveal>
-            <AnimatedReveal delay={0.3}>
               <p>
                 Whether you are navigating a relationship decision, healing from a painful past, or
                 learning to love and be loved well, you are in the right place.
-              </p>
-            </AnimatedReveal>
-          </div>
-        </div>
-      </Section>
-
-      <Section background="blush">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <SectionHeading eyebrow="My Mission" title="Why I do this work" />
-          <AnimatedReveal delay={0.1} className="space-y-6">
-            <div>
-              <h3 className="font-heading text-lg text-primary">Mission</h3>
-              <p className="mt-2 leading-relaxed text-foreground/70">
-                To help individuals, couples, and families break unhealthy emotional patterns,
-                heal from the inside out, and build relationships that reflect their fullest
-                potential through counseling, education, and honest conversation.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-heading text-lg text-primary">Vision</h3>
-              <p className="mt-2 leading-relaxed text-foreground/70">
-                A world where emotional health is not a luxury, where healing is not a sign of
-                weakness, and where every person has access to the tools, support, and truth they
-                need to live and love well.
               </p>
             </div>
           </AnimatedReveal>
         </div>
       </Section>
 
+      <Section background="blush">
+        <SectionHeading
+          eyebrow="Mission & Vision"
+          title="Why I do this work"
+          description="Every session, conversation, and resource is grounded in helping individuals and families build lasting emotional health."
+          align="center"
+        />
+        <div className="mx-auto mt-8 grid max-w-4xl gap-6 sm:grid-cols-2">
+          <AnimatedReveal delay={0.08} className="h-full">
+            <Card className="h-full border-border/60 bg-card/90 shadow-xs backdrop-blur-xs transition-all duration-300 hover:shadow-md">
+              <CardContent className="flex h-full flex-col p-6 sm:p-8">
+                <div className="flex items-center gap-3.5">
+                  <span className="flex size-11 items-center justify-center rounded-full bg-blush text-primary">
+                    <Compass className="size-5" />
+                  </span>
+                  <h3 className="font-heading text-xl font-medium text-foreground">Mission</h3>
+                </div>
+                <p className="mt-4 text-base leading-relaxed text-foreground/75">
+                  To help individuals, couples, and families break unhealthy emotional patterns,
+                  heal from the inside out, and build relationships that reflect their fullest
+                  potential through counseling, education, and honest conversation.
+                </p>
+              </CardContent>
+            </Card>
+          </AnimatedReveal>
+
+          <AnimatedReveal delay={0.16} className="h-full">
+            <Card className="h-full border-border/60 bg-card/90 shadow-xs backdrop-blur-xs transition-all duration-300 hover:shadow-md">
+              <CardContent className="flex h-full flex-col p-6 sm:p-8">
+                <div className="flex items-center gap-3.5">
+                  <span className="flex size-11 items-center justify-center rounded-full bg-blush text-primary">
+                    <Sparkles className="size-5" />
+                  </span>
+                  <h3 className="font-heading text-xl font-medium text-foreground">Vision</h3>
+                </div>
+                <p className="mt-4 text-base leading-relaxed text-foreground/75">
+                  A world where emotional health is not a luxury, where healing is not a sign of
+                  weakness, and where every person has access to the tools, support, and truth they
+                  need to live and love well.
+                </p>
+              </CardContent>
+            </Card>
+          </AnimatedReveal>
+        </div>
+      </Section>
+
       <Section background="muted">
         <SectionHeading eyebrow="How I Work" title="What guides every session" align="center" />
-        <div className="mt-12 grid gap-6 sm:grid-cols-3">
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
           {values.map((value, i) => {
             const Icon = value.icon;
             return (

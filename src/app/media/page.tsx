@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/images/online-courses.jpg",
         width: 1200,
         height: 630,
-        alt: `Media & Resources — Adesuwa Isenérè`,
+        alt: `Media & Resources - Adesuwa Isenérè`,
       },
     ],
   },
@@ -49,7 +49,7 @@ export default function MediaPage() {
       <PageHero
         eyebrow="Media & Resources"
         title="Books, courses & conversations"
-        description="Author, Speaker, Podcast Host — resources to support your journey beyond the counseling room."
+        description="Author, Speaker, Podcast Host - resources to support your journey beyond the counseling room."
       />
       <MediaGrid />
     </>

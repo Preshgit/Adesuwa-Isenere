@@ -6,7 +6,6 @@ import { AnimatedReveal } from "@/components/shared/animated-reveal";
 import { ServiceCard } from "@/components/shared/service-card";
 import { PricingCard } from "@/components/shared/pricing-card";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
-import { BookingEmbed } from "@/components/sections/booking-embed";
 import {
   JsonLd,
   getBreadcrumbSchema,
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
         url: "/images/adesuwa-hero.jpg",
         width: 1200,
         height: 630,
-        alt: `Counseling Services — ${siteConfig.practiceName}`,
+        alt: `Counseling Services - ${siteConfig.practiceName}`,
       },
     ],
   },
@@ -63,46 +62,46 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Counseling & Trainings"
-        description={`Offered through ${siteConfig.practiceName} — support for wherever you are in your relationship journey.`}
+        description={`Offered through ${siteConfig.practiceName}, support for wherever you are in your relationship journey.`}
       />
 
       <Section>
         <SectionHeading
           eyebrow="Merry Hearts Counselling"
           title="How we can work together"
-          description="Every service is rooted in compassion, confidentiality, and clinical excellence — practical support for singles, couples, and families."
+          description="Every service is rooted in compassion, confidentiality, and clinical excellence, practical support for singles, couples, and families."
+          align="center"
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2 lg:gap-8">
           {services.map((service, i) => (
-            <AnimatedReveal key={service.title} delay={i * 0.08}>
+            <AnimatedReveal key={service.title} delay={i * 0.08} className="h-full">
               <ServiceCard service={service} />
             </AnimatedReveal>
           ))}
         </div>
       </Section>
 
-      <Section background="blush">
+      <Section id="booking" background="blush">
         <SectionHeading
           eyebrow="Pricing"
           title="Counseling packages"
           description="Every package is booked and paid for securely through Selar."
           align="center"
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {pricingTiers.map((tier, i) => (
-            <AnimatedReveal key={tier.name} delay={i * 0.06}>
+            <AnimatedReveal key={tier.name} delay={i * 0.06} className="h-full">
               <PricingCard tier={tier} />
             </AnimatedReveal>
           ))}
         </div>
-        <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-foreground/60">
+        <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-foreground/60">
           Each package is structured to deliver results within its stated sessions. If more support
           is needed, additional sessions are billed separately at the standard rate. Full booking,
           payment, and rescheduling terms are shared at checkout.
         </p>
       </Section>
 
-      <BookingEmbed />
       <FaqAccordion />
     </>
   );

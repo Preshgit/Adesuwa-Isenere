@@ -47,10 +47,10 @@ export function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <Button
             variant="pill"
-            render={<Link href="/services#booking" />}
-            className="hidden sm:inline-flex px-4 md:px-5 text-xs md:text-sm font-medium shadow-xs"
+            render={<Link href="/contact" />}
+            className="hidden sm:inline-flex px-5 text-sm font-medium shadow-xs"
           >
-            Book a Session
+            Contact Adesuwa
           </Button>
           <ThemeToggle />
 
@@ -92,10 +92,10 @@ export function Header() {
                 <Button
                   variant="pill"
                   size="lg"
-                  render={<Link href="/services#booking" onClick={() => setOpen(false)} />}
+                  render={<Link href="/contact" onClick={() => setOpen(false)} />}
                   className="w-full shadow-md font-semibold text-sm"
                 >
-                  Book a Counselling Session
+                  Contact Adesuwa
                 </Button>
               </div>
             </SheetContent>
