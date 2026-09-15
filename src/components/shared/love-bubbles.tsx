@@ -103,19 +103,19 @@ export function LoveBubbles() {
       mouse.y = e.clientY;
       mouse.active = true;
 
-      // Cursor trail: spawn floating love hearts & micro-bubbles at the cursor
-      if (now - lastTrailTime > 45 && mouse.speed > 2) {
+      // Cursor trail: spawn subtle floating love hearts & micro-bubbles at the cursor
+      if (now - lastTrailTime > 110 && mouse.speed > 3) {
         lastTrailTime = now;
-        if (trailParticles.length < 35) {
+        if (trailParticles.length < 14) {
           trailParticles.push({
-            x: mouse.x + (Math.random() - 0.5) * 12,
-            y: mouse.y + (Math.random() - 0.5) * 12,
-            vx: (Math.random() - 0.5) * 0.8,
-            vy: -Math.random() * 0.85 - 0.45,
-            radius: Math.random() * 7 + 5,
-            alpha: 0.65,
+            x: mouse.x + (Math.random() - 0.5) * 10,
+            y: mouse.y + (Math.random() - 0.5) * 10,
+            vx: (Math.random() - 0.5) * 0.6,
+            vy: -Math.random() * 0.7 - 0.35,
+            radius: Math.random() * 3.5 + 3.5, // 3.5px to 7px (delicate & small)
+            alpha: 0.45,
             life: 0,
-            maxLife: 42,
+            maxLife: 28, // dissolves quickly
             isHeart: Math.random() > 0.35,
             isRose: Math.random() > 0.3,
             rotation: (Math.random() - 0.5) * 0.4,
@@ -126,23 +126,23 @@ export function LoveBubbles() {
     };
 
     const handlePointerDown = (e: PointerEvent) => {
-      // Gentle burst of 5 love hearts on click
-      for (let i = 0; i < 5; i++) {
-        const angle = (Math.PI * 2 * i) / 5 + (Math.random() - 0.5) * 0.5;
-        const speed = Math.random() * 1.6 + 0.8;
+      // Subtle micro-burst of 2 tiny love hearts on click
+      for (let i = 0; i < 2; i++) {
+        const angle = (Math.PI * 2 * i) / 2 + (Math.random() - 0.5) * 0.4;
+        const speed = Math.random() * 1.2 + 0.6;
         trailParticles.push({
           x: e.clientX,
           y: e.clientY,
           vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.7,
-          radius: Math.random() * 8 + 6,
-          alpha: 0.7,
+          vy: Math.sin(angle) * speed - 0.5,
+          radius: Math.random() * 4 + 4,
+          alpha: 0.5,
           life: 0,
-          maxLife: 45,
+          maxLife: 30,
           isHeart: true,
           isRose: Math.random() > 0.35,
-          rotation: (Math.random() - 0.5) * 0.5,
-          rotSpeed: (Math.random() - 0.5) * 0.03,
+          rotation: (Math.random() - 0.5) * 0.4,
+          rotSpeed: (Math.random() - 0.5) * 0.025,
         });
       }
     };
@@ -169,7 +169,7 @@ export function LoveBubbles() {
       );
 
     const docHeight = getDocHeight();
-    const bubbleDensity = Math.max(Math.floor(docHeight / 160), 22);
+    const bubbleDensity = Math.min(Math.max(Math.floor(docHeight / 240), 13), 18);
     const bubbles: PageBubble[] = [];
 
     for (let i = 0; i < bubbleDensity; i++) {
@@ -178,8 +178,8 @@ export function LoveBubbles() {
         pageX: Math.random() * (width - 80) + 40,
         pageY,
         basePageY: pageY,
-        radius: Math.random() * 20 + 14, // 2D size: 14px to 34px (perfect circles)
-        alpha: Math.random() * 0.08 + 0.2, // 20% - 28% opacity: clearly visible, never distracting
+        radius: Math.random() * 9 + 10, // 10px to 19px (delicate & smaller)
+        alpha: Math.random() * 0.05 + 0.13, // 13% - 18% opacity (calm & subtle)
         isHeart: i % 2 === 0,
         isRose: i % 3 !== 0,
         phase: Math.random() * Math.PI * 2,
@@ -353,16 +353,16 @@ export function LoveBubbles() {
           const dx = screenX - mouse.x;
           const dy = screenY - mouse.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const repelRadius = 180;
+          const repelRadius = 140;
 
           if (dist < repelRadius && dist > 1) {
             const norm = 1 - dist / repelRadius; // 0 to 1
-            const push = norm * norm * 6.5; // strong, smooth spring push
+            const push = norm * norm * 4.5; // gentle, smooth spring push
             b.repelVx += (dx / dist) * push;
             b.repelVy += (dy / dist) * push;
-            b.targetScale = 1 + norm * 0.25; // swells gently
-            b.targetAlphaBoost = norm * 0.15; // glows brighter when hovered
-            b.rotation += (dx > 0 ? 1 : -1) * norm * 0.03;
+            b.targetScale = 1 + norm * 0.16; // gentle 16% swell
+            b.targetAlphaBoost = norm * 0.08; // subtle hover glow
+            b.rotation += (dx > 0 ? 1 : -1) * norm * 0.02;
           } else {
             b.targetScale = 1.0;
             b.targetAlphaBoost = 0;
@@ -382,7 +382,7 @@ export function LoveBubbles() {
         b.currentAlphaBoost += (b.targetAlphaBoost - b.currentAlphaBoost) * 0.12;
 
         const effectiveRadius = b.radius * b.currentScale;
-        const effectiveAlpha = Math.min(b.alpha + b.currentAlphaBoost, 0.55);
+        const effectiveAlpha = Math.min(b.alpha + b.currentAlphaBoost, 0.32);
 
         if (b.isHeart) {
           const heartFill = b.isRose
