@@ -41,7 +41,7 @@ export function FeaturedBook() {
               {book.ctaLabel}
               <ArrowUpRight className="size-4" />
             </Button>
-            <Button size="lg" variant="outline" render={<Link href="/media" />}>
+            <Button size="lg" variant="outline" render={<Link href="/media" prefetch={true} />}>
               Explore books & courses
             </Button>
           </div>

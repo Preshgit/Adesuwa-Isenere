@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -47,7 +47,7 @@ export function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <Button
             variant="pill"
-            render={<Link href="/contact" />}
+            render={<Link href="/contact" prefetch={true} />}
             className="hidden sm:inline-flex px-5 text-sm font-medium shadow-xs"
           >
             Contact Adesuwa
@@ -56,7 +56,11 @@ export function Header() {
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
-              render={<Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu" />}
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "lg:hidden cursor-pointer touch-manipulation"
+              )}
+              aria-label="Open menu"
             >
               <Menu className="size-5" />
             </SheetTrigger>
@@ -74,9 +78,10 @@ export function Header() {
                       <Link
                         key={link.href}
                         href={link.href}
+                        prefetch={true}
                         onClick={() => setOpen(false)}
                         className={cn(
-                          "rounded-xl px-4 py-3 text-base font-medium transition-colors",
+                          "rounded-xl px-4 py-3 text-base font-medium transition-colors cursor-pointer touch-manipulation",
                           isActive
                             ? "bg-primary/10 text-primary font-semibold"
                             : "text-foreground/80 hover:bg-muted hover:text-foreground"
@@ -92,7 +97,7 @@ export function Header() {
                 <Button
                   variant="pill"
                   size="lg"
-                  render={<Link href="/contact" onClick={() => setOpen(false)} />}
+                  render={<Link href="/contact" prefetch={true} onClick={() => setOpen(false)} />}
                   className="w-full shadow-md font-semibold text-sm"
                 >
                   Contact Adesuwa

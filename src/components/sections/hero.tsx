@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/container";
@@ -15,12 +12,7 @@ export function Hero() {
       <div className="pointer-events-none absolute -bottom-32 -left-24 size-96 rounded-full bg-gold/10 blur-3xl" />
 
       <Container className="relative grid items-center gap-8 py-12 sm:py-8 lg:grid-cols-2 lg:gap-12 lg:py-10">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col justify-center"
-        >
+        <div className="flex flex-col justify-center animate-hero-fade-in">
           <span className="font-heading text-sm font-medium tracking-[0.2em] text-primary uppercase">
             Marriage & Family Counselor
           </span>
@@ -36,16 +28,16 @@ export function Hero() {
               size="lg"
               variant="pill"
               className="px-6"
-              render={<Link href="/contact#client-inquiry" />}
+              render={<Link href="/contact#client-inquiry" prefetch={true} />}
             >
               Book a Counselling Session
               <ArrowRight className="size-4" />
             </Button>
-            <Button size="lg" variant="outline" render={<Link href="/about" />}>
+            <Button size="lg" variant="outline" render={<Link href="/about" prefetch={true} />}>
               Meet Adesuwa
             </Button>
           </div>
-        </motion.div>
+        </div>
 
         <div
           className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-[2rem] shadow-xl ring-1 ring-foreground/5 sm:max-w-sm lg:mx-0 lg:ml-auto lg:max-w-[390px] xl:max-w-[430px] lg:aspect-[4/4.3] xl:aspect-[4/4.4] transition-all duration-700 ease-out"
