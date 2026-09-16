@@ -67,13 +67,13 @@ export function LoveBubbles() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
     const isMobile = width < 768;
-    const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
+    const dpr = isMobile ? 1.25 : Math.min(window.devicePixelRatio || 1, 2);
 
     const resize = () => {
       width = window.innerWidth;
       height = window.innerHeight;
       const currentIsMobile = width < 768;
-      const currentDpr = currentIsMobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
+      const currentDpr = currentIsMobile ? 1.25 : Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.floor(width * currentDpr);
       canvas.height = Math.floor(height * currentDpr);
       canvas.style.width = `${width}px`;
@@ -95,15 +95,9 @@ export function LoveBubbles() {
 
     let lastTrailTime = 0;
     const trailParticles: CursorTrail[] = [];
-    const maxParticles = isMobile ? 6 : 14;
+    const maxParticles = isMobile ? 10 : 16;
 
     const handlePointerMove = (e: PointerEvent) => {
-      // If touch-scrolling, don't flood with particles
-      if (e.pointerType === "touch" && Math.abs(e.clientY - mouse.prevY) > 8) {
-        mouse.active = false;
-        return;
-      }
-
       const now = performance.now();
       const dx = e.clientX - mouse.prevX;
       const dy = e.clientY - mouse.prevY;
@@ -114,20 +108,21 @@ export function LoveBubbles() {
       mouse.y = e.clientY;
       mouse.active = true;
 
-      // Cursor trail: spawn subtle floating love hearts & micro-bubbles at the cursor/pointer
-      if (now - lastTrailTime > (isMobile ? 180 : 110) && mouse.speed > 3) {
+      // Cursor & touch trail: spawn floating love hearts & micro-bubbles
+      const interval = isMobile ? 120 : 100;
+      if (now - lastTrailTime > interval && mouse.speed > 3) {
         lastTrailTime = now;
         if (trailParticles.length < maxParticles) {
           trailParticles.push({
-            x: mouse.x + (Math.random() - 0.5) * 10,
-            y: mouse.y + (Math.random() - 0.5) * 10,
-            vx: (Math.random() - 0.5) * 0.6,
-            vy: -Math.random() * 0.7 - 0.35,
-            radius: Math.random() * 3 + 3, // delicate & small
-            alpha: 0.45,
+            x: mouse.x + (Math.random() - 0.5) * 8,
+            y: mouse.y + (Math.random() - 0.5) * 8,
+            vx: (Math.random() - 0.5) * (isMobile ? 0.7 : 0.6),
+            vy: -Math.random() * 0.7 - 0.4,
+            radius: isMobile ? Math.random() * 4 + 4 : Math.random() * 3.5 + 3.5,
+            alpha: isMobile ? 0.65 : 0.5,
             life: 0,
-            maxLife: isMobile ? 22 : 28, // dissolves quickly
-            isHeart: Math.random() > 0.35,
+            maxLife: isMobile ? 28 : 30,
+            isHeart: Math.random() > 0.3,
             isRose: Math.random() > 0.3,
             rotation: (Math.random() - 0.5) * 0.4,
             rotSpeed: (Math.random() - 0.5) * 0.025,
@@ -137,23 +132,23 @@ export function LoveBubbles() {
     };
 
     const handlePointerDown = (e: PointerEvent) => {
-      // Micro-burst of 1 delicate heart on mobile touch, 2 on desktop click
-      const burstCount = e.pointerType === "touch" ? 1 : 2;
+      // 2 vibrant floating love hearts that burst gently on tap/click
+      const burstCount = 2;
       for (let i = 0; i < burstCount; i++) {
         if (trailParticles.length >= maxParticles) {
           trailParticles.shift();
         }
-        const angle = (Math.PI * 2 * i) / burstCount + (Math.random() - 0.5) * 0.4;
-        const speed = Math.random() * 1.0 + 0.5;
+        const angle = (Math.PI * 2 * i) / burstCount + (Math.random() - 0.5) * 0.45;
+        const speed = Math.random() * 1.2 + 0.6;
         trailParticles.push({
           x: e.clientX,
           y: e.clientY,
           vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.5,
-          radius: Math.random() * 3.5 + 3.5,
-          alpha: 0.5,
+          vy: Math.sin(angle) * speed - 0.55,
+          radius: isMobile ? Math.random() * 4.5 + 4.5 : Math.random() * 4 + 4,
+          alpha: isMobile ? 0.7 : 0.55,
           life: 0,
-          maxLife: 24,
+          maxLife: 30,
           isHeart: true,
           isRose: Math.random() > 0.35,
           rotation: (Math.random() - 0.5) * 0.4,
@@ -185,8 +180,8 @@ export function LoveBubbles() {
 
     const docHeight = getDocHeight();
     const bubbleDensity = isMobile
-      ? Math.min(Math.max(Math.floor(docHeight / 500), 7), 9)
-      : Math.min(Math.max(Math.floor(docHeight / 240), 13), 18);
+      ? Math.min(Math.max(Math.floor(docHeight / 360), 9), 12)
+      : Math.min(Math.max(Math.floor(docHeight / 240), 14), 20);
     const bubbles: PageBubble[] = [];
 
     for (let i = 0; i < bubbleDensity; i++) {
@@ -195,8 +190,8 @@ export function LoveBubbles() {
         pageX: Math.random() * (width - 80) + 40,
         pageY,
         basePageY: pageY,
-        radius: Math.random() * 9 + 10, // 10px to 19px (delicate & smaller)
-        alpha: Math.random() * 0.05 + 0.13, // 13% - 18% opacity (calm & subtle)
+        radius: isMobile ? Math.random() * 9 + 11 : Math.random() * 10 + 10,
+        alpha: isMobile ? Math.random() * 0.07 + 0.18 : Math.random() * 0.06 + 0.14,
         isHeart: i % 2 === 0,
         isRose: i % 3 !== 0,
         phase: Math.random() * Math.PI * 2,
