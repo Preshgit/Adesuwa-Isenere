@@ -50,7 +50,7 @@ export function ServicesGrid({
       </div>
       {showCta && (
         <div className="mt-8 text-center">
-          <Button render={<Link href="/services" />}>
+          <Button render={<Link href="/services" prefetch={true} />}>
             View all services
             <ArrowRight className="size-4" />
           </Button>

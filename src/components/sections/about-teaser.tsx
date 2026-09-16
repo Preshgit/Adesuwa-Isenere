@@ -25,7 +25,7 @@ export function AboutTeaser() {
             patterns; to heal what needs healing, and to build a life and relationships that
             actually feel like yours.
           </p>
-          <Button variant="link" className="px-0 text-primary" render={<Link href="/about" />}>
+          <Button variant="link" className="px-0 text-primary" render={<Link href="/about" prefetch={true} />}>
             Read my full story
             <ArrowRight className="size-4" />
           </Button>
